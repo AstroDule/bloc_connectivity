@@ -2,24 +2,24 @@ import 'package:bloc_connectivity/packages/network/network_bloc.dart';
 import 'package:bloc_connectivity/packages/network/network_event.dart';
 import 'package:bloc_connectivity/packages/network/network_main.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
-  runApp(MultiBlocProvider(
-        providers: [
-          BlocProvider(
-            create: (context) => NetworkBloc()..add(ListenConnection()),
-            child: ConnectivityShow(),
-          ),
-        ],
-        child: const MyApp(),
-      ),
-    );
+  runApp(
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => NetworkBloc()..add(ListenConnection()),
+          child: ConnectivityShow(),
+        ),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key key, this.title}) : super(key: key);
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -44,10 +44,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
-
     String onLineText = 'Online';
     String offLineText = 'Offline';
     return Scaffold(
@@ -58,13 +56,12 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'Status of connectivity',
-              style:TextStyle(color: Colors.black, fontSize: 21)
+            const Text('Status of connectivity',
+                style: TextStyle(color: Colors.black, fontSize: 21)),
+            Container(
+              height: 20,
             ),
-          Container(height: 20,),
-          ConnectivityShow(
-              onLineText: onLineText, offLineText: offLineText),
+            ConnectivityShow(onLineText: onLineText, offLineText: offLineText),
           ],
         ),
       ),

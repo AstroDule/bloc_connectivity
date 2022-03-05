@@ -21,10 +21,10 @@ class Connectivity extends StatelessWidget {
 }
 
 class ConnectivityShow extends StatelessWidget {
-  String onLineText = 'Online';
-  String offLineText = 'Offline';
+  String onLineText;
+  String offLineText;
 
-  ConnectivityShow({Key key, this.offLineText, this.onLineText})
+  ConnectivityShow({Key? key, this.offLineText = 'Online', this.onLineText = 'Offline'})
       : super(key: key);
 
   @override

@@ -7,7 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class NetworkBloc extends Bloc<NetworkEvent, NetworkState> {
   NetworkBloc({this.subscription}) : super(ConnectionInitial());
 
-  StreamSubscription subscription;
+  StreamSubscription? subscription;
 
   @override
   Stream<NetworkState> mapEventToState(NetworkEvent event) async* {
